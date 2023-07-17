@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+        <!-- View definition for propose.route tree view -->
+        <record id="rikai_workflow_config_route_tree" model="ir.ui.view">
+            <field name="name">rikai.workflow.config.route.tree</field>
+            <field name="model">rikai.workflow.config.route</field>
+            <field name="arch" type="xml">
+                <tree string="Propose Routes">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="apply_budget"/>
+                    <field name="apply_payment"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="rikai_workflow_config_step_form" model="ir.ui.view">
+            <field name="name">rikai.workflow.config.step.form</field>
+            <field name="model">rikai.workflow.config.step</field>
+            <field name="arch" type="xml">
+                <form string="Propose Step">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="step_sequence"/>
+                        </group>
+                        <group>
+                            <field name="step_type"/>
+                        </group>
+                        <notebook>
+                            <page string="Approvers">
+                                <field name="approvers" widget="one2many_list">
+                                    <tree editable="top">
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rikai_workflow_config_route_form" model="ir.ui.view">
+            <field name="name">rikai.workflow.config.route.form</field>
+            <field name="model">rikai.workflow.config.route</field>
+            <field name="arch" type="xml">
+                <form string="Propose Route">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="apply_budget"/>
+                            <field name="apply_payment"/>
+                        </group>
+                        <notebook>
+                            <page string="Approve Step">
+                                <field name="step_list" widget="one2many_list">
+                                    <!--<tree editable="top"> -->
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="step_sequence"/>
+                                        <field name="step_type"/>
+                                        <field name="approver_tags" widget="html"/>
+                                        <!-- Additional fields from child model -->
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    
+                </form>
+            </field>
+        </record>
+        
+        <record id="rikai_config_route" model="ir.actions.act_window">
+            <field name="name">Route</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rikai.workflow.config.route</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="rikai_workflow_config" parent="rikai_workflow" name="Configuration"/>
+        <menuitem id="rikai_workflow_config_route" parent="rikai_workflow_config" name="Routes" action="rikai_config_route"/>
+    </data>
+</odoo>

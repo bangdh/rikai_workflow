@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Full access rule for administrators -->
+        <record id="rikai_workflow_security_config_route" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_config_route"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_config_budget_category" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_config_budget_category"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_config_step" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_config_step"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_config_approver" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_config_approver"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_propose_payment" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_propose_payment"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_propose_budget" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_propose_budget"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_propose_payment_item" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_propose_payment_item"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_propose_approver" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_propose_approver"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_propose_step" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_propose_step"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_config_reo" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_config_reo"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rikai_workflow_security_config_department" model="ir.model.access">
+            <field name="name">Rikai Developer</field>
+            <field name="model_id" ref="model_rikai_workflow_config_department"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="rikai_view_budget_category_tree" model="ir.ui.view">
+            <field name="name">budget.category.tree</field>
+            <field name="model">rikai.workflow.config.budget.category</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="type"/>
+                    <field name="param"/>
+                    <field name="multiplier"/>
+                    <field name="compute_level"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="rikai_view_budget_category_form" model="ir.ui.view">
+            <field name="name">budget.category.form</field>
+            <field name="model">rikai.workflow.config.budget.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="description"/>
+                            <field name="param"/>
+                            <field name="multiplier"/>
+                            <field name="compute_level"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="rikai_action_budget_category" model="ir.actions.act_window">
+            <field name="name">Budget Categories</field>
+            <field name="res_model">rikai.workflow.config.budget.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="rikai_menu_budget_category_list" name="Budget Categories" parent="rikai_workflow_config" action="rikai_action_budget_category" sequence="4"/>
+    </data>
+</odoo>
+

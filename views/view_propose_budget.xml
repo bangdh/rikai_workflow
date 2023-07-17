@@ -1,0 +1,170 @@
+<odoo>
+    <data>
+         <!-- View definition for propose.budget tree view -->
+        <record id="rikai_workflow_apporve_budget_tree" model="ir.ui.view">
+            <field name="name">rikai.workflow.propose.budget.tree</field>
+            <field name="model">rikai.workflow.propose.budget</field>
+            <field name="arch" type="xml">
+                <tree string="Propose Budget">
+                    <field name="create_uid" string="Created by" invisible="1"/>
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="category_type" invisible="1"/>
+                    <field name="fiscal_year"/>
+                    <field name="payment_year"/>
+                    <field name="company"/>
+                    <field name="department"/>
+                    <field name="owner"/>
+                    <field name="approver"/>
+                    <field name="state"/>
+                    <field name="payees" widget="many2many_tags"/>
+                    <field name="currency"/>
+                    <field name="total_amount"/>
+                    <field name="mte_amount"/>  
+                    <field name="jan"/>
+                    <field name="feb"/>
+                    <field name="mar"/>
+                    <field name="apr"/>
+                    <field name="may"/>
+                    <field name="jun"/>
+                    <field name="jul"/>
+                    <field name="aug"/>
+                    <field name="sep"/>
+                    <field name="oct"/>
+                    <field name="nov"/>
+                    <field name="dec"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="rikai_workflow_apporve_budget_form" model="ir.ui.view">
+            <field name="name">rikai.workflow.propose.budget.form</field>
+            <field name="model">rikai.workflow.propose.budget</field>
+            <field name="arch" type="xml">
+                <form string="Propose Budgets">
+                    <header>
+                        <button name="action_confirm" states="submited,confirming" string="Confirming" type="object" class="oe_highlight" />
+                        <button name="action_reject" states="submited,confirming" string="Reject" type="object" class="oe_highlight" />
+                        <button name="action_approve" states="submited,confirming" string="Approve" type="object" class="oe_highlight" />
+                        <button name="action_submit" states="creating" string="Submit" type="object" class="oe_highlight" />
+                        <button name="action_return" states="submited,confirming" string="Return" type="object" class="oe_highlight" />
+
+                        <!--<button name="action_fix" states="creating,submited,confirming,approved,rejected" string="Fix" type="object" class="oe_highlight" />-->
+
+                        <!--<button name="action_paid" states="approved" string="Paid" type="object" class="oe_highlight" />-->
+                        <field name="state" widget="statusbar" statusbar_visible="creating,submited,confirming,approved,rejected"/>
+
+                    </header>
+                    <sheet>
+                        <!-- Add your button definition below -->
+                        
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="company"/>
+                                <field name="department"/>
+                            </group>
+                            <group>
+                                <field name="fiscal_year"/>
+                                <field name="payment_year"/>
+                                <field name="category"/>
+                            </group>
+
+                            <group>
+                                <field name="owner"/>
+                                <field name="currency"/>
+                                <field name="approver"/>
+                            </group>
+                            <group>
+                                <field name="payees" widget="many2many_tags"/>
+                                <field name="route"/>
+                                
+                            </group>
+
+                            <group>
+                                <field name="total_amount"/>
+                            </group>
+                            <group>
+                                <field name="mte_amount"/>
+                            </group>
+
+                            <group>
+                                <field name="jan"/>
+                                <field name="feb"/>
+                                <field name="mar"/>
+                            </group>
+                            <group>
+                                <field name="apr"/>
+                                <field name="may"/>
+                                <field name="jun"/>
+                            </group>
+
+                            <group>
+                                <field name="jul"/>
+                                <field name="aug"/>
+                                <field name="sep"/>
+                            </group>
+                            <group>
+                                <field name="oct"/>
+                                <field name="nov"/>
+                                <field name="dec"/>
+                            </group>
+
+                            
+                            
+                        </group>
+                        <notebook>
+                            <page string="Notes">
+                                <field name="note" widget="html"/>
+                            </page>
+                            
+                            <page string="Payments">
+                                <field name="payments" widget="one2many_list">
+                                    <!--<tree editable="top"> -->
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="payment_date"/>
+                                        <field name="state"/>
+                                        <field name="currency"/>
+                                        <field name="amount"/>
+                                        <field name="tax_amount"/>
+                                        <field name="total_amount"/>
+                                        <!-- Additional fields from child model -->
+                                    </tree>
+                                </field>
+                            </page>
+                            
+                            <page string="Propose Step">
+                                <field name="propose_steps" widget="one2many_list">
+                                    <!--<tree editable="top"> -->
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="step_type"/>
+                                        <field name="step_sequence"/>
+                                        <field name="status"/>
+                                        <field name="approvers" widget="many2many_tags"/>
+                                        <!-- Additional fields from child model -->
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div> 
+                </form>
+            </field>
+        </record>
+
+        <record id="rikai_propose_budget" model="ir.actions.act_window">
+            <field name="name">Propose Budget</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rikai.workflow.propose.budget</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="rikai_workflow_propose_budget" parent="rikai_workflow_propose" sequence="0" name="Budgets" action="rikai_propose_budget"/>
+    </data>
+</odoo>

@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <!-- View definition for organization tree view -->
+        <record id="rikai_workflow_config_department_tree" model="ir.ui.view">
+            <field name="name">rikai.workflow.config.department.tree</field>
+            <field name="model">rikai.workflow.config.department</field>
+            <field name="arch" type="xml">
+                <tree string="Rikai Departments">
+                    <field name="name"/>
+                    <field name="company"/>
+                    <field name="leader"/>
+                    <field name="accountant"/>
+                    <field name="reo"/>
+                    <field name="deleted"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="rikai_config_department" model="ir.actions.act_window">
+            <field name="name">Rikai Departments</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rikai.workflow.config.department</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- View definition for organization tree view -->
+        <record id="rikai_workflow_config_reo_tree" model="ir.ui.view">
+            <field name="name">rikai.workflow.config.reo.tree</field>
+            <field name="model">rikai.workflow.config.reo</field>
+            <field name="arch" type="xml">
+                <tree string="Rikai Executive Officer">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="leader"/>
+                    <field name="departments"/>
+                    <field name="deleted"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="rikai_config_reo" model="ir.actions.act_window">
+            <field name="name">Rikai Executive Officer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rikai.workflow.config.reo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="rikai_workflow_config_reo" sequence="1" parent="rikai_workflow_config" name="Executive Officer" action="rikai_config_reo"/>
+        <menuitem id="rikai_workflow_config_department" sequence="2" parent="rikai_workflow_config" name="Departments" action="rikai_config_department"/>     
+    </data>
+</odoo>
